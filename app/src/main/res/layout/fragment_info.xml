@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_header_selector"
     tools:context=".ui.main.fragments.InfoFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -22,15 +23,16 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="12dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
         android:text="@string/title"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="24sp"
-        android:textColor="@color/black"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scroller"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/scroller"
         app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -39,9 +41,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/date"
+        android:textAlignment="center"
+        android:textColor="@color/main"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ScrollView
@@ -51,7 +54,7 @@
         android:layout_marginHorizontal="12dp"
         app:layout_constraintBottom_toTopOf="@+id/publish"
         app:layout_constraintTop_toBottomOf="@+id/title"
-        tools:layout_editor_absoluteX="12dp">
+        tools:layout_editor_absoluteX="-10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -63,10 +66,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/lorem"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="21sp" />
 
 
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

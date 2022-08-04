@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_infoFragment"
-            app:destination="@id/infoFragment" />
+            app:destination="@id/infoFragment"
+            app:enterAnim="@anim/zoom_in"
+            app:popEnterAnim="@anim/zoom_out" />
 
     </fragment>
     <fragment

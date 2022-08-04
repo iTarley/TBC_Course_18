@@ -1,5 +1,6 @@
 package com.example.tbc_course_18.ui.main.fragments
 
+import android.animation.Animator
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
