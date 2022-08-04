@@ -18,7 +18,7 @@ ex. Luka Nikuradze - luka.nikuradze.1@btu.edu.ge
 
 
 ## Version History
-* 1.1 (03.08.2022)
+* 1.1 (04.08.2022)
     * removed notifyDataSetChanged()
 
 * 1.0 (03.08.2022)
