@@ -1,4 +1,4 @@
-package com.example.tbc_course_18.ui.main
+package com.example.tbc_course_18.viewModel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

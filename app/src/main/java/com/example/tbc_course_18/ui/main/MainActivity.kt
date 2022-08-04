@@ -1,10 +1,10 @@
-package com.example.tbc_course_18
+package com.example.tbc_course_18.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.example.tbc_course_18.ui.main.MainFragment
+import com.example.tbc_course_18.R
 
 class MainActivity : AppCompatActivity() {
 

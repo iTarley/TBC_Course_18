@@ -1,11 +1,11 @@
-package com.example.tbc_course_18.ui.main
+package com.example.tbc_course_18.ui.main.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -13,13 +13,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.tbc_course_18.adapter.CustomAdapter
 import com.example.tbc_course_18.databinding.FragmentMainBinding
+import com.example.tbc_course_18.viewModel.MainViewModel
 import kotlinx.coroutines.launch
 
 class MainFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
 
     private val viewModel: MainViewModel by viewModels()
     private var _binding: FragmentMainBinding? = null
@@ -59,9 +56,11 @@ class MainFragment : Fragment() {
 
     private fun navigate(){
         adapter.onClick = {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToInfoFragment(
-                it.descriptionKA,it.publish_date,it.titleKA,it.cover
-            ))
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToInfoFragment(
+                    it.descriptionKA, it.publish_date, it.titleKA, it.cover
+                )
+            )
         }
     }
 

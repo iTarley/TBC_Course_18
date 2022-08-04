@@ -1,6 +1,5 @@
 package com.example.tbc_course_18.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -12,7 +11,7 @@ import com.example.tbc_course_18.models.ApartmentsModel
 
 typealias onClick = (item: ApartmentsModel.Content) -> Unit
 
-class CustomAdapter():ListAdapter<ApartmentsModel,CustomAdapter.ViewHolder>(DiffCallBack()) {
+class CustomAdapter:ListAdapter<ApartmentsModel.Content,CustomAdapter.ViewHolder>(DiffCallBack()) {
 
 
     private var content = emptyList<ApartmentsModel.Content>()
@@ -47,14 +46,14 @@ class CustomAdapter():ListAdapter<ApartmentsModel,CustomAdapter.ViewHolder>(Diff
         }
     }
 
-    class DiffCallBack : DiffUtil.ItemCallback<ApartmentsModel>() {
-        override fun areItemsTheSame(oldItem: ApartmentsModel, newItem: ApartmentsModel): Boolean {
-            return oldItem.content?.get(0)?.titleKA == newItem.content?.get(0)?.titleKA
+    class DiffCallBack : DiffUtil.ItemCallback<ApartmentsModel.Content>() {
+        override fun areItemsTheSame(oldItem: ApartmentsModel.Content, newItem: ApartmentsModel.Content): Boolean {
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: ApartmentsModel,
-            newItem: ApartmentsModel
+            oldItem: ApartmentsModel.Content,
+            newItem: ApartmentsModel.Content
         ): Boolean {
             return oldItem == newItem
         }
@@ -63,7 +62,7 @@ class CustomAdapter():ListAdapter<ApartmentsModel,CustomAdapter.ViewHolder>(Diff
 
     fun setData(newList: List<ApartmentsModel.Content>){
         content = newList
-        notifyDataSetChanged()
+        submitList(content)
     }
 
 

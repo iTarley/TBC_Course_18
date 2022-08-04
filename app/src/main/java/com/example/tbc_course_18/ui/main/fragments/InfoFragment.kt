@@ -1,4 +1,4 @@
-package com.example.tbc_course_18.ui.main
+package com.example.tbc_course_18.ui.main.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,14 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.example.tbc_course_18.R
 import com.example.tbc_course_18.databinding.FragmentInfoBinding
 
 class InfoFragment : Fragment() {
 
 
-    private val args:InfoFragmentArgs by navArgs()
-    private lateinit var viewModel: InfoViewModel
+    private val args: InfoFragmentArgs by navArgs()
     private var _binding: FragmentInfoBinding? = null
     private val binding get() = _binding!!
 
