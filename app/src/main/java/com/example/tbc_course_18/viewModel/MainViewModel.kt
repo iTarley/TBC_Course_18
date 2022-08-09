@@ -1,7 +1,5 @@
 package com.example.tbc_course_18.viewModel
 
-import android.util.Log
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tbc_course_18.models.ApartmentsModel
@@ -9,12 +7,12 @@ import com.example.tbc_course_18.models.RetrofitClient
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 class MainViewModel : ViewModel() {
 
-    private val _apiResponse = MutableStateFlow<List<ApartmentsModel.Content>>(emptyList())
-    val apiResponse: StateFlow<List<ApartmentsModel.Content>> get() = _apiResponse
+
+    private val _apiResponse = MutableStateFlow<Resource>(Resource.Loading)
+    val apiResponse: StateFlow<Resource> = _apiResponse
 
 
     fun getContent(){
@@ -22,12 +20,20 @@ class MainViewModel : ViewModel() {
             val response = RetrofitClient.getInformation().getInfo()
             if (response.isSuccessful){
                 val body:ApartmentsModel? = response.body()
-                Log.d("response", "$body")
-                _apiResponse.value = body?.content ?: emptyList()
+                _apiResponse.emit(Resource.Success(body?.content ?: emptyList()))
             }else{
                 val error = response.errorBody()
-                Log.d("errorResponse", "$error")
+                _apiResponse.emit(Resource.Error(error?.toString() ?: "Unknown Error"))
+
             }
         }
+    }
+
+
+    sealed class Resource{
+        data class Success(val data: List<ApartmentsModel.Content>) : Resource()
+        data class Error(val message:String):Resource()
+        object Loading: Resource()
+
     }
 }
